@@ -5,7 +5,7 @@ RSpec.describe ContestsController, type: :controller do
   # This should return the minimal set of attributes required to create a valid
   # Contest. As you add validations to Contest, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) { {contest_type: "wit", :battlepets => ["Totoro", "Luna"]} }
+  let(:valid_attributes) { {battlepet_traits: ["wit"], :battlepets => ["Totoro", "Luna"]} }
 
   describe "POST #create" do
     context "with valid params" do

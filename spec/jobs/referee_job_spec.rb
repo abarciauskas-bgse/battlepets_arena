@@ -3,17 +3,17 @@ require 'rails_helper'
 RSpec.describe RefereeJob, type: :job do
   describe 'evaluate contest' do
     let(:referee) { RefereeJob.new() }
-    let(:contest_type) { 'wit' }
+    let(:battlepet_traits) { ['wit'] }
     let(:luna_trait_value) { 25 }
     let(:luna) { double('battlepet') }
     let(:totoro_trait_value) { 50 }
     let(:totoro) { double('battlepet') }
-    let(:contest) { Contest.create!(contest_type: contest_type, battlepets: ['Luna', 'Totoro']) }
+    let(:contest) { Contest.create!(battlepet_traits: battlepet_traits, battlepets: ['Luna', 'Totoro']) }
     let(:contest_result) { ContestResult.where(contest: contest).last }
     before do
-      expect(luna).to receive(:trait_value).with(contest_type).and_return(luna_trait_value)
+      expect(luna).to receive(:trait_value).with(battlepet_traits.first).and_return(luna_trait_value)
       expect(luna).to receive(:name).and_return('Luna').at_least(:once)
-      expect(totoro).to receive(:trait_value).with(contest_type).and_return(totoro_trait_value)
+      expect(totoro).to receive(:trait_value).with(battlepet_traits.first).and_return(totoro_trait_value)
       expect(totoro).to receive(:name).and_return('Totoro').at_least(:once)
       expect(BattlePet).to receive(:find).with('Luna').and_return(luna)
       expect(BattlePet).to receive(:find).with('Totoro').and_return(totoro)
@@ -54,7 +54,7 @@ RSpec.describe RefereeJob, type: :job do
 
       context 'when one has more experience' do
         before :each do
-          c = Contest.create!(contest_type: 'strength', battlepets: ['Hamtaro', 'Totoro'])
+          c = Contest.create!(battlepet_traits: ['strength'], battlepets: ['Hamtaro', 'Totoro'])
           ContestResult.create!(contest: c, loser: 'Totoro', winner: 'Hamtaro')
           referee.evaluate_contest(contest.id)
         end

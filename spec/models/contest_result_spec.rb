@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe ContestResult, type: :model do
-  let(:contest) { Contest.create!(contest_type: 'wit', battlepets: ['Luna', 'Totoro']) }
+  let(:contest) { Contest.create!(battlepet_traits: ['wit'], battlepets: ['Luna', 'Totoro']) }
   let(:contest_result) { ContestResult.create!(winner: 'Luna', loser: 'Totoro', contest: contest) }
   
   describe 'attributes' do

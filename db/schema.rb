@@ -1,3 +1,4 @@
+# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -19,16 +20,16 @@ ActiveRecord::Schema.define(version: 20160718040151) do
     t.string   "winner",     null: false
     t.string   "loser",      null: false
     t.integer  "contest_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["contest_id"], name: "index_contest_results_on_contest_id", using: :btree
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "contests", force: :cascade do |t|
-    t.string   "battlepets",                array: true
-    t.string   "contest_type", null: false
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.string   "battlepets",                          array: true
+    t.string   "contest_type",     default: "simple"
+    t.string   "battlepet_traits",                    array: true
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_foreign_key "contest_results", "contests"

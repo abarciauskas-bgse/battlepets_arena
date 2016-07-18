@@ -1,4 +1,4 @@
-class CreateContestResults < ActiveRecord::Migration[5.0]
+class CreateContestResults < ActiveRecord::Migration
   def change
     create_table :contest_results do |t|
       t.string :winner, null: false

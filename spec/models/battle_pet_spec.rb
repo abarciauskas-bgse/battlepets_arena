@@ -6,7 +6,7 @@ describe BattlePet, type: :model do
   let(:luna_name)    { 'Luna' }
 
   before :each do
-    c1 = Contest.create!(contest_type: 'competitive eating', battlepets: [hamtaro_name, totoro_name])
+    c1 = Contest.create!(battlepet_traits: ['competitive eating'], battlepets: [hamtaro_name, totoro_name])
     ContestResult.create!(contest: c1, winner: hamtaro_name, loser: totoro_name)
   end
 

@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe ContestResultsController, type: :controller do
-  let(:contest) { Contest.create!(battlepets: ['Luna', 'Totoro'], contest_type: 'with') }
+  let(:contest) { Contest.create!(battlepets: ['Luna', 'Totoro'], battlepet_traits: ['wit']) }
   # This should return the minimal set of attributes required to create a valid
   # ContestResult. As you add validations to ContestResult, be sure to
   # adjust the attributes here as well.
