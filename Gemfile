@@ -22,15 +22,15 @@ gem 'puma', '~> 3.0'
 # gem 'rack-cors'
 
 gem 'dice_bag', '~> 1.1'
-gem 'activeresource'
-gem 'sidekiq'
-gem 'webmock'
+gem 'activeresource', '~> 4.1'
+gem 'sidekiq', '~> 4.1'
+gem 'webmock', '~> 2.1'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
   gem 'rspec-rails', '~> 3.4'
-  gem 'pry'
+  gem 'pry', '~> 0.10'
 end
 
 group :development do
@@ -43,6 +43,9 @@ end
 group :test do
   gem 'rails-controller-testing'
   gem "shoulda-matchers"
+  gem 'cucumber-rails', '~> 1.4', :require => false
+  # database_cleaner is not required, but highly recommended
+  gem 'database_cleaner', '~> 1.5' 
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

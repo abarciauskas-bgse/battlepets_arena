@@ -24,4 +24,6 @@ Things you may want to cover:
 # TODO
 
 * Validate single ContestResult per contest
+* Use simplecov
+
 

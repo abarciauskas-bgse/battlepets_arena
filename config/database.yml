@@ -9,6 +9,9 @@ development:
   <<: *default
   database: battlepets_arena_development
 
-test:
+test: &test
   <<: *default
   database: battlepets_arena_test
+
+cucumber:
+  <<: *test

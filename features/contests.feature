@@ -4,7 +4,8 @@ Feature: Contests
   Experience and past contest results should be recorded.
 
   Background:
-    Given a witty battlepet "Totoro" exists
+    Given we can manage battlepets
+    And a witty battlepet "Totoro" exists
     And "Totoro" has medium strength
     And a less witty battlepet "Luna" exist
     And a battlepet "Hamtaro" exists
