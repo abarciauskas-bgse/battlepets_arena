@@ -26,7 +26,10 @@ RSpec.describe ContestsController, type: :controller do
         expect(response).to be_success
       end
 
-      it "enqueues a contest object"
+      it "enqueues a contest object" do
+        expect(RefereeJob).to receive(:perform_later)
+        post :create, params: {contest: valid_attributes}
+      end     
     end
   end
 end

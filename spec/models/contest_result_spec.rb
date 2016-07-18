@@ -28,7 +28,7 @@ RSpec.describe ContestResult, type: :model do
       it 'is invalid' do
         expect { contest_result.save! }.to raise_error(
           ActiveRecord::RecordInvalid,
-          'Validation failed: Contest must exist, Contest can\'t be blank')
+          'Validation failed: Contest can\'t be blank')
       end
     end
   end

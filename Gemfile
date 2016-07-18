@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 4.2'
+gem 'rails-api'
 # Use postgresql as the database for Active Record
 gem 'pg'
 # Use Puma as the app server
@@ -23,11 +24,13 @@ gem 'puma', '~> 3.0'
 gem 'dice_bag', '~> 1.1'
 gem 'activeresource'
 gem 'sidekiq'
+gem 'webmock'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
   gem 'rspec-rails', '~> 3.4'
+  gem 'pry'
 end
 
 group :development do

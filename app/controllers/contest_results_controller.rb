@@ -46,6 +46,6 @@ class ContestResultsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def contest_result_params
-      params.require(:contest_result).permit(:winner, :loser, :contest_id)
+      params["params"].require(:contest_result).permit(:winner, :loser, :contest_id)
     end
 end
