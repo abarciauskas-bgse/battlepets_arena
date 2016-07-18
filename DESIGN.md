@@ -16,22 +16,19 @@ The arena also listens for updates in its respective battlepets' health.
 
 #### Contest Resource Representation
 
-#### Contest Resource Representation
-
 ```json
 {
     "type": "wit",
-    "winner": "Totoro",
-    "loser": "Luna",
-    "_self": "http://arena.battlepets.com/contests/1/"
+    "battle_pets": ["Totoro","Luna"],
+    "_self": "http://arena.battlepets.com/contests/1",
+    "_result": "http://arena.battlepets.com/contest_results/1"
 }
 ```
 
 #### Contest Resource Attributes
 
 * `type`: wit, strength, agility, or senses
-* `winner`: name of winning battlepet
-* `loser`: name of lossing battlepet
+* `battle_pets`: array of battle pets participating in the contest
 
 _[v2]_
 
@@ -48,8 +45,7 @@ Creates a new contest, enqueues the contest for evaluation by the referrees.
 
 Request:
 
-* Required parameters: `:pet_1, :pet_2, :type`
-* Optional parameters: none
+* Required parameters: `:type, :battle_pets`
 
 Response:
 
@@ -57,22 +53,34 @@ Response:
     * HTTP Resonse Status: 201
     * HTTP Resonse Body: _See Contest Resource Representation_
 
-* `PATCH /contests/:contest_id`
+### Contest Results
+
+#### Contest Resource Representation
+
+```json
+{
+    "winner": "Totoro",
+    "loser": "Luna",
+    "_contest": "http://arena.battlepets.com/contests/1",
+    "_self": "http://arena.battlepets.com/contest_results/1"
+}
+```
+
+**`POST /contest_results/:contest_id`**
 
 Update contest. Called by referrees following contest evaluation.
 
 Request:
 
-* Required parameters: `:contest_id`
-* Optional parameters: `:winner, :loser`
+* Required parameters: `:contest_id, :winner, :loser`
 
 Response:
 
 * Successful Response:
-    * HTTP Resonse Status: 204
-    * HTTP Resonse Body: none
+    * HTTP Resonse Status: 201
+    * HTTP Resonse Body: See _Contest Result Resource Representation_
 
-* `GET /contests?pet=:name`
+**`GET /contest_results?pet=:name`**
 
 Get contests where pet with name `:name` participated.
 
@@ -87,10 +95,6 @@ Response:
     * HTTP Resonse Status: 200
     * HTTP Resonse Body: List of contest resources where pet with `:name` was either a winner or loser.
 
-_[v2]_
-
-* `GET,DELETE /contests/:contest_id`
-* `PATCH /contests/:contest_id/action` (requires battlepet and action) enqueues an action
 
 ### _[v2]_ Arenas
 
