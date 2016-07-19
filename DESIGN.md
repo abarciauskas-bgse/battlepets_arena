@@ -1,13 +1,13 @@
 # Design
 
-Only store information in one place. Since experience is an exact reflection of past contests, we only use past contest data to evaluate experience (i.e. no need to store it in the battlepet management service).
+Single source of truth: store information in one place. Since experience is an exact reflection of past contests, we only use past contest data to evaluate experience (i.e. no need to store it in the battlepet management service).
 
 Contests and contest result resources are kept seperate. This is for 2 reasons:
 
 1. A future feature is timed contests: While a contest is in-progress, pets can take actions which contribute to their score in the contest. These actions are enqueued as a job to a score keeper. Score keepers pick up actions and store them as ContestEvent objects. The contest result job is enqueued for when the contest is over and the evaluation of a timed contest incorporates all ContestEvent objects belonging to that contest. Note: In this feature it is important to ensure the queues are well managed and all ContestEvent objects have been stored prior to contest evaluation.
 2. Single Responsibility Principle: Contests are responsible for contest attributes, contest results are responsible for storing winners and losers.
 
-_[v2]_
+_[Version 2]_
 
 When a pet enters an arena, the battlepets arena services caches a local copy of the battlepet (we also check to make sure the user is authorized to battle with this pet and cache that authorization). The battlepet representation includes a list of the pet's available actions, moves and their initial health.
 
@@ -15,9 +15,9 @@ When a pet is inside an arena, available actions are to move and make battle act
 
 The arena listens for updates in its respective battlepets' health.
 
-## Resources
+# Resources
 
-### Contests
+## Contests
 
 #### Contest Resource Representation
 
@@ -37,12 +37,6 @@ The arena listens for updates in its respective battlepets' health.
 * `battlepets`: array of battle pets participating in the contest.
 * `battlepet_traits`: array of battle pet traits to evaluate in the contest.
 
-_[v2]_
-
-* `state`: either `finished` or `in_progress`
-* `duration`: Length of contest, defaults to 0 seconds
-* `arena`
-
 #### Contest Resource Actions
 
 **`POST /contests`**
@@ -59,7 +53,7 @@ Response:
     * HTTP Resonse Status: 201
     * HTTP Resonse Body: _See Contest Resource Representation_
 
-### Contest Results
+## Contest Results
 
 #### Contest Results Resource Representation
 
@@ -72,8 +66,22 @@ Response:
 }
 ```
 
+# Version 2
 
-### _[v2]_ Arenas
+## Contests
+
+* `state`: either `finished` or `in_progress`
+* `duration`: Length of contest, defaults to 0 seconds
+* `arena`
+
+## ContestActions
+
+* `contest`
+* `action`
+* `actor`
+* `actee`
+
+## Arenas
 
 **Attributes**
 
@@ -90,7 +98,7 @@ Response:
 * `PATCH /arenas/:arena_name/move`: (requires battlepet) updates arena positions
 * `GET /features`
 
-### _[v2]_ Arena Features
+### Arena Features
 
 **Attributes**
 
@@ -98,8 +106,7 @@ Response:
 * `location`
 * `size`
 
-
-## Future Improvements
+# Future Improvements
 
 * Have timed contests and enqueue `ContestResult` objects for `TimedContestEvaluation` 
 * Use arenas to initiate contests
