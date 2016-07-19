@@ -1,6 +1,11 @@
 # Design
 
-Only store information in one place. Since experience is an exact reflection of past contests, only use past contest data to evaluate experience (i.e. no need to store it in the battlepet management service).
+Only store information in one place. Since experience is an exact reflection of past contests, we only use past contest data to evaluate experience (i.e. no need to store it in the battlepet management service).
+
+Contests and contest result resources are kept seperate. This is for 2 reasons:
+
+1. A future feature is timed contests: While a contest is in-progress, pets can take actions which contribute to their score in the contest. These actions are enqueued as a job to a score keeper. Score keepers pick up actions and store them as ContestEvent objects. The contest result job is enqueued for when the contest is over and the evaluation of a timed contest incorporates all ContestEvent objects belonging to that contest. Note: In this feature it is important to ensure the queues are well managed and all ContestEvent objects have been stored prior to contest evaluation.
+2. Single Responsibility Principle: Contests are responsible for contest attributes, contest results are responsible for storing winners and losers.
 
 _[v2]_
 
