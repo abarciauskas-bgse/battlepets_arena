@@ -1,0 +1,1 @@
+BATTLEPETS_MANAGEMENT_URL=<%= configured.battlepets_management_url || "'http://localhost:3000/'" %>

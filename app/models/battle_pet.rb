@@ -1,16 +1,26 @@
 class BattlePet < ActiveResource::Base
-  self.site = "http://localhost:3000/"
+  self.site = BATTLEPETS_MANAGEMENT_URL
 
-  def trait_value(trait)
-    self.traits.collect(&:attributes).select{|trait| trait['name'] == contest_type}.first['value']
+  def trait_value(pet_trait)
+    self.traits.collect(&:attributes).select{|trait| trait['name'] == pet_trait}.first['value']
   end
 
   def self.experience(battle_pet_name)
     experience = 0
-    winners = ContestResult.where(winner: battle_pet_name)
-    losers = ContestResult.where(loser: battle_pet_name)
-    experience += winners.size()*EXPERIENCE_FOR_WIN
-    experience += losers.size()*EXPERIENCE_FOR_LOSS
+    experience += experience_of_type(battle_pet_name, 'winner')
+    experience += experience_of_type(battle_pet_name, 'lose')
     experience
+  end
+
+  def self.experience_of_type(battle_pet_name, result = 'winner')
+    added_experience = 0
+    if result == 'winner'
+      results = ContestResult.where(winner: battle_pet_name)
+      added_experience = results.size()*EXPERIENCE_FOR_WIN
+    elsif result == 'loser'
+      results = ContestResult.where(loser: battle_pet_name)
+      added_experience = results.size()*EXPERIENCE_FOR_LOSS     
+    end
+    added_experience
   end
 end

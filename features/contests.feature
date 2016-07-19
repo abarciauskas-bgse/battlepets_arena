@@ -5,19 +5,17 @@ Feature: Contests
 
   Background:
     Given we can manage battlepets
-    And a witty battlepet "Totoro" exists
-    And "Totoro" has medium strength
-    And a less witty battlepet "Luna" exist
-    And a battlepet "Hamtaro" exists
-    And "Hamtaro" has medium strength
+    And I create a battlepet "Totoro" with wit 70 and strength 30
+    And I create a battlepet "Luna" with wit 10 and strength 90
+    And I create a battlepet "Hamtaro" with wit 70 and strength 30
 
   Scenario: Two battlepets participate in a contest of wit
-    When "Totoro" and "Luna" participate in a contest of wit
+    When "Totoro" and "Luna" participate in a contest of "wit"
     Then the contest will be completed
     And "Totoro" will be declared the winner
 
   Scenario: Two battlepets of equal strength participate in a contest of strength, the more experienced battlepet wins
-    Given "Totoro" and "Luna" participate in a contest of wit
-    When "Totoro" and "Hamtaro" participate in a contest of strength
+    Given "Totoro" and "Luna" participate in a contest of "wit"
+    When "Totoro" and "Hamtaro" participate in a contest of "strength"
     Then the contest will be completed
     And "Totoro" will be declared the winner

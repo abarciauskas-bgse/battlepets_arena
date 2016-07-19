@@ -1,0 +1,2 @@
+EXPERIENCE_FOR_LOSS=<%= configured.experience_for_loss || 0.5 %>
+EXPERIENCE_FOR_WIN=<%= configured.experience_for_win || 1.0 %>

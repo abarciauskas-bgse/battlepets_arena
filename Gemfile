@@ -45,7 +45,7 @@ group :test do
   gem "shoulda-matchers"
   gem 'cucumber-rails', '~> 1.4', :require => false
   # database_cleaner is not required, but highly recommended
-  gem 'database_cleaner', '~> 1.5' 
+  #gem 'database_cleaner', '~> 1.5' 
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

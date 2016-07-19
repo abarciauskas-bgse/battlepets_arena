@@ -73,7 +73,6 @@ GEM
       nokogiri (~> 1.5)
       railties (>= 3, < 5)
     cucumber-wire (0.0.1)
-    database_cleaner (1.5.3)
     dice_bag (1.1.1)
       diff-lcs (~> 1.0)
       rake
@@ -213,7 +212,6 @@ DEPENDENCIES
   activeresource (~> 4.1)
   byebug
   cucumber-rails (~> 1.4)
-  database_cleaner (~> 1.5)
   dice_bag (~> 1.1)
   listen (~> 3.0.5)
   pg
