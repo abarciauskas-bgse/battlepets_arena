@@ -2,7 +2,7 @@ default: &default
   adapter: postgresql
   encoding: unicode
   pool: 5
-  username: battlepets_management
+  username: battlepets_arena
   password: password1
 
 development:
