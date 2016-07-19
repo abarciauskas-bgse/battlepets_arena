@@ -25,5 +25,6 @@ Things you may want to cover:
 
 * Validate single ContestResult per contest
 * Use simplecov
+* Fix permitted params
 
 

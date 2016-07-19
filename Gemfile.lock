@@ -151,7 +151,7 @@ GEM
     rb-fsevent (0.9.7)
     rb-inotify (0.9.7)
       ffi (>= 0.5.0)
-    redis (3.3.0)
+    redis (3.3.1)
     rspec-core (3.5.1)
       rspec-support (~> 3.5.0)
     rspec-expectations (3.5.0)
@@ -214,16 +214,16 @@ DEPENDENCIES
   cucumber-rails (~> 1.4)
   dice_bag (~> 1.1)
   listen (~> 3.0.5)
-  pg
+  pg (~> 0.18)
   pry (~> 0.10)
   puma (~> 3.0)
   rails (~> 4.2)
-  rails-api
+  rails-api (~> 0.4)
   rails-controller-testing
   rspec-rails (~> 3.4)
-  shoulda-matchers
+  shoulda-matchers (~> 3.1)
   sidekiq (~> 4.1)
-  spring
+  spring (~> 1.7)
   spring-watcher-listen (~> 2.0.0)
   tzinfo-data
   webmock (~> 2.1)
