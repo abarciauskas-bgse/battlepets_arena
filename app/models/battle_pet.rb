@@ -8,7 +8,7 @@ class BattlePet < ActiveResource::Base
   def self.experience(battle_pet_name)
     experience = 0
     experience += experience_of_type(battle_pet_name, 'winner')
-    experience += experience_of_type(battle_pet_name, 'lose')
+    experience += experience_of_type(battle_pet_name, 'loser')
     experience
   end
 

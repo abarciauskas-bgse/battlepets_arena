@@ -11,12 +11,12 @@ RSpec.describe RefereeJob, type: :job do
     let(:contest) { Contest.create!(battlepet_traits: battlepet_traits, battlepets: ['Luna', 'Totoro']) }
     let(:contest_result) { ContestResult.where(contest: contest).last }
     before do
-      expect(luna).to receive(:trait_value).with(battlepet_traits.first).and_return(luna_trait_value)
+      expect(luna).to receive(:trait_value).with(battlepet_traits.first).and_return(luna_trait_value).at_least(:once)
       expect(luna).to receive(:name).and_return('Luna').at_least(:once)
-      expect(totoro).to receive(:trait_value).with(battlepet_traits.first).and_return(totoro_trait_value)
+      expect(totoro).to receive(:trait_value).with(battlepet_traits.first).and_return(totoro_trait_value).at_least(:once)
       expect(totoro).to receive(:name).and_return('Totoro').at_least(:once)
-      expect(BattlePet).to receive(:find).with('Luna').and_return(luna)
-      expect(BattlePet).to receive(:find).with('Totoro').and_return(totoro)
+      expect(BattlePet).to receive(:find).with('Luna').and_return(luna).at_least(:once)
+      expect(BattlePet).to receive(:find).with('Totoro').and_return(totoro).at_least(:once)
     end
 
     context 'when all contestants have a trait relating to the contest type' do
