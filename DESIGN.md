@@ -77,7 +77,10 @@ Response:
 ## ContestActions
 
 * `contest`
-* `action`
+* `action`: `kick, punch, shield, karate chop` etc.
+* `force`: positive or negative value. (e.g. offensive or defensive)
+    * If positive, indicates a defensive action which reduces impact of opponents action.
+    * If negative, indicates an offensive action impacting opponents health.
 * `actor`
 * `actee`
 
@@ -98,13 +101,20 @@ Response:
 * `PATCH /arenas/:arena_name/move`: (requires battlepet) updates arena positions
 * `GET /features`
 
-### Arena Features
+## Arena Features
 
 **Attributes**
 
 * `type`
 * `location`
 * `size`
+
+## Arena Moves
+
+* `type`: step, jump, leap, run, swim
+* `direction`
+* `force`
+
 
 # Future Improvements
 
