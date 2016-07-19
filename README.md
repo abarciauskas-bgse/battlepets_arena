@@ -4,11 +4,11 @@ Battlepets Arena owns battlepet contests and their results. For the API see **[D
 
 **System Dependences:**
 
-    * RVM
-    ```bash
-    \curl -L https://get.rvm.io | bash -s stable
-    ```
-    * Ruby version: `ruby 2.3.1p112`
+* RVM
+```bash
+\curl -L https://get.rvm.io | bash -s stable
+```
+* Ruby version: `ruby 2.3.1p112`
 
 **Installation**
 
