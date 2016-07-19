@@ -67,35 +67,6 @@ Response:
 }
 ```
 
-**`POST /contest_results/:contest_id`**
-
-Update contest. Called by referrees following contest evaluation.
-
-Request:
-
-* Required parameters: `:contest_id, :winner, :loser`
-
-Response:
-
-* Successful Response:
-    * HTTP Resonse Status: 201
-    * HTTP Resonse Body: See _Contest Result Resource Representation_
-
-**`GET /contest_results?pet=:name`**
-
-Get contests where pet with name `:name` participated.
-
-Request:
-
-* Required parameters: `:name`
-* Optional parameters: none
-
-Response:
-
-* Successful Response:
-    * HTTP Resonse Status: 200
-    * HTTP Resonse Body: List of contest resources where pet with `:name` was either a winner or loser.
-
 
 ### _[v2]_ Arenas
 
@@ -135,4 +106,3 @@ Response:
 * Schedule a battle?
 * Cache pets in a battle (but they probably get updated too often on the pet management side)
 * A battle of with could include a q&a request response cycle
-

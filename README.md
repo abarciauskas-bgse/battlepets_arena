@@ -13,8 +13,8 @@ Battlepets Arena owns battlepet contests and their results. For the API see **[D
 **Installation**
 
 ```
-git clone https://github.com/abarciauskas-bgse/battlepets_management
-cd battlepets_management
+git clone https://github.com/abarciauskas-bgse/battlepets_arena
+cd battlepets_arena
 bundle install
 ```
 
@@ -63,7 +63,7 @@ None at this time
 **Run the app**
 
 ```
-rails s
+rails s -p 3001
 ```
 
 ## Smoketest Battlepets Management + Battlepets Arena
