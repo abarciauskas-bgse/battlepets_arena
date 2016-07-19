@@ -18,8 +18,9 @@ The arena also listens for updates in its respective battlepets' health.
 
 ```json
 {
-    "type": "wit",
-    "battle_pets": ["Totoro","Luna"],
+    "battlepet_traits": "wit",
+    "battlepets": ["Totoro","Luna"],
+    "contest_type": "simple",
     "_self": "http://arena.battlepets.com/contests/1",
     "_result": "http://arena.battlepets.com/contest_results/1"
 }

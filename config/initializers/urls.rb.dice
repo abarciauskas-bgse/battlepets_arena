@@ -1,1 +1,2 @@
+BASE_URL=<%= configured.base_url || "'http://localhost:3001/'" %>
 BATTLEPETS_MANAGEMENT_URL=<%= configured.battlepets_management_url || "'http://localhost:3000/'" %>
