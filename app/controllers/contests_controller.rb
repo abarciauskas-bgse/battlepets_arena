@@ -11,7 +11,6 @@ class ContestsController < ApplicationController
 
     if @contest.save
       RefereeJob.perform_later(@contest.id)
-      binding.pry
       render json: @contest, status: :created, location: @contest
     else
       render json: @contest.errors, status: :unprocessable_entity

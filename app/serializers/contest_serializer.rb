@@ -3,7 +3,11 @@ class ContestSerializer < ActiveModel::Serializer
 
   def _result
     result = ContestResult.where(contest: self.object).first
-    BASE_URL + "contest_results/#{result.id}"
+    if result
+      BASE_URL + "contest_results/#{result.id}"
+    else
+      ''
+    end
   end
 
   def _self

@@ -2,7 +2,7 @@ class BattlePet < ActiveResource::Base
   self.site = BATTLEPETS_MANAGEMENT_URL
 
   def trait_value(pet_trait)
-    self.traits.collect(&:attributes).select{|trait| trait['name'] == pet_trait}.first['value']
+    self.serialized_traits.collect(&:attributes).select{|trait| trait['name'] == pet_trait}.first['value']
   end
 
   def self.experience(battle_pet_name)
