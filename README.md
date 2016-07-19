@@ -20,7 +20,7 @@ bundle install
 
 **Configuration**
 
-This app uses the dicebag gem to configure config files (those suffixed with `.dice`). Generate required files with the following commands.
+This app uses the [dice_bag](https://github.com/mdsol/dice_bag) gem to configure config files (those suffixed with `.dice`). Generate required files with the following commands.
 
 ```bash
 rake config
