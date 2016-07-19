@@ -19,7 +19,7 @@ The arena listens for updates in its respective battlepets' health.
 
 ## Contests
 
-#### Contest Resource Representation
+### Contest Resource Representation
 
 ```json
 {
@@ -31,13 +31,13 @@ The arena listens for updates in its respective battlepets' health.
 }
 ```
 
-#### Contest Resource Attributes
+### Contest Resource Attributes
 
 * `contest_type`: Type of contest, only supported type at this time is `simple`.
 * `battlepets`: array of battle pets participating in the contest.
 * `battlepet_traits`: array of battle pet traits to evaluate in the contest.
 
-#### Contest Resource Actions
+### Contest Resource Actions
 
 **`POST /contests`**
 
@@ -67,7 +67,7 @@ Response:
 
 ## Contest Results
 
-#### Contest Results Resource Representation
+### Contest Results Resource Representation
 
 ```json
 {
@@ -77,6 +77,8 @@ Response:
     "_self": "http://arena.battlepets.com/contest_results/1"
 }
 ```
+
+### Contest Result Resource Actions
 
 **`GET /contest_results/:contest_result_id`**
 
