@@ -30,7 +30,7 @@ rake config
 
 Install PostgreSQL if you don't have it already: [How To Setup Ruby on Rails with Postgres](https://www.digitalocean.com/community/tutorials/how-to-setup-ruby-on-rails-with-postgres)
 
-Chose PostgreSQL because it is the most advanced DBMS and offers the most data type flexibility ([source](https://www.digitalocean.com/community/tutorials/sqlite-vs-mysql-vs-postgresql-a-comparison-of-relational-database-management-systems)). There is no requirement for advanced data types now, but this means we are not limited to them.
+PostgreSQL was chosen because it is acknowledged to be the most advanced DBMS and offers the most data type flexibility ([source](https://www.digitalocean.com/community/tutorials/sqlite-vs-mysql-vs-postgresql-a-comparison-of-relational-database-management-systems)). There is no requirement for advanced data types now, but this means we are not limited to them.
 
 ```bash
 $ psql

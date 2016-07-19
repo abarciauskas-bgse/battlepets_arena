@@ -8,7 +8,7 @@ When a pet enters an arena, the battlepets arena services caches a local copy of
 
 When a pet is inside an arena, available actions are to move and make battle actions. If the battlepet is capable of the move or action, the response is successful and the action or move is put on the arena's battle queue.
 
-The arena also listens for updates in its respective battlepets' health.
+The arena listens for updates in its respective battlepets' health.
 
 ## Resources
 
@@ -28,12 +28,12 @@ The arena also listens for updates in its respective battlepets' health.
 
 #### Contest Resource Attributes
 
-* `type`: wit, strength, agility, or senses
-* `battle_pets`: array of battle pets participating in the contest
+* `contest_type`: Type of contest, only supported type at this time is `simple`.
+* `battlepets`: array of battle pets participating in the contest.
+* `battlepet_traits`: array of battle pet traits to evaluate in the contest.
 
 _[v2]_
 
-* `pets`
 * `state`: either `finished` or `in_progress`
 * `duration`: Length of contest, defaults to 0 seconds
 * `arena`
@@ -56,7 +56,7 @@ Response:
 
 ### Contest Results
 
-#### Contest Resource Representation
+#### Contest Results Resource Representation
 
 ```json
 {
@@ -73,7 +73,7 @@ Response:
 **Attributes**
 
 * `dimensions`: 3-d array of arena space
-* _[v2]_ `features`: An arena may have zero to many features, which impact possible movement of battling pets
+* `features`: An arena may have zero to many features, which impact possible movement of battling pets
 
 **Actions**
 
@@ -94,15 +94,10 @@ Response:
 * `size`
 
 
-## Ideas
+## Future Improvements
 
-#### Technical
-
-* Initiate arena objects as part of application launch
-
-#### Features
-
-* Does it matter if an arena is occupied?
-* Schedule a battle?
+* Have timed contests and enqueue `ContestResult` objects for `TimedContestEvaluation` 
+* Use arenas to initiate contests
+* Seed arenas as part of launch
 * Cache pets in a battle (but they probably get updated too often on the pet management side)
-* A battle of with could include a q&a request response cycle
+* A battle of wit could include a q&a request response cycle
