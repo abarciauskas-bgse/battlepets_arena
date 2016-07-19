@@ -45,12 +45,24 @@ Creates a new contest, enqueues the contest for evaluation by the referrees.
 
 Request:
 
-* Required parameters: `:type, :battle_pets`
+* Required parameters: `:battlepet_traits, :battlepets`
 
 Response:
 
 * Successful Response:
     * HTTP Resonse Status: 201
+    * HTTP Resonse Body: _See Contest Resource Representation_
+
+**`GET /contests/:contest_id`**
+
+Request:
+
+* Required parameters: `:contest_id`
+
+Response:
+
+* Successful Response:
+    * HTTP Resonse Status: 200
     * HTTP Resonse Body: _See Contest Resource Representation_
 
 ## Contest Results
@@ -65,6 +77,19 @@ Response:
     "_self": "http://arena.battlepets.com/contest_results/1"
 }
 ```
+
+**`GET /contest_results/:contest_result_id`**
+
+Request:
+
+* Required parameters: `:contest_result_id`
+
+Response:
+
+* Successful Response:
+    * HTTP Resonse Status: 200
+    * HTTP Resonse Body: _See Contest Result Resource Representation_
+
 
 # Version 2
 
